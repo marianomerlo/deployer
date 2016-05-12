@@ -8,7 +8,7 @@ app.get('/run/:scriptName/:version', function (req, res) {
   if (req.headers['api-key'] === apiKey) {
     if (req.params.scriptName && req.params.version) {
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      var command = '../' + req.params.scriptName + '.sh ' + req.params.version;
+      var command = '~/' + req.params.scriptName + '.sh ' + req.params.version;
       console.log('Executing the following command: sh ' + command);
       execProcess.result('sh ' + command, function (err, response) {
         if (!err) {
